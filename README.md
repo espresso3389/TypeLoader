@@ -1,5 +1,5 @@
 # TypeLoader
-This is a PCL version of TypeLoader, which is originally by [watertrans](https://www.codeplex.com/site/users/view/watertrans) and released on [codeplex](https://typeloader.codeplex.com/).
+This is a PCL version of TypeLoader, which was originally developed by [watertrans](https://www.codeplex.com/site/users/view/watertrans) and released on [codeplex](https://typeloader.codeplex.com/).
 This library handles vertical texts easily by processing OpenType/TrueType files directly.
 
 ## NuGet
@@ -72,3 +72,6 @@ public unsafe void drawText(SKCanvas canvas, ushort[] glyphs, float x, float y, 
   }
 }
 ```
+
+## P.S.
+Although I once tried to contact the original author, watertrans, via email as shown on the source code headers, the address is no longer valid... The source code is licensed under MIT and I think my work does not violate anything but I really want to contact him to let him know about this project.
