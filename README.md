@@ -1,6 +1,16 @@
 # TypeLoader
-This is a PCL version of TypeLoader, which was originally developed by [watertrans](https://www.codeplex.com/site/users/view/watertrans) and released on [codeplex](https://typeloader.codeplex.com/).
+This is a .NET Standard version of TypeLoader, which was originally developed by [watertrans](https://www.codeplex.com/site/users/view/watertrans) and released on [codeplex](https://typeloader.codeplex.com/).
 This library handles vertical texts easily by processing OpenType/TrueType files directly.
+
+## Release Notes
+
+### 2.1
+
+- .NET Standard version of TypeLoader.
+
+### 2.0.1
+
+- First release PCL version of TypeLoader.
 
 ## NuGet
 A NuGet package is available on the following URL:
@@ -8,14 +18,14 @@ A NuGet package is available on the following URL:
 https://www.nuget.org/packages/WaterTrans.TypeLoader/
 
 ## Supported Platforms
-This package supports following platforms (Profile111):
+This library is compiled for .NET Standard 1.0. Supports following platforms:
 
-- .NET Framework 4.5
-- ASP.NET Core 1.0
-- Windows 8
-- Windows Phone 8.1
-- Xamarin.Android
-- Xamarin.iOS (Either Unified or Classic)
+- .NET Core (1.0+)
+- .NET Framework (4.5+)
+- Mono (4.6+)
+- Xamarin.iOS (10.0+)
+- Xamarin.Mac (3.0+)
+- Xamarin.Android (7.0+)
 
 ## License
 [MIT](https://github.com/espresso3389/TypeLoader/blob/master/LICENSE)
