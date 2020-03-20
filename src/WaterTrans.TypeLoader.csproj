@@ -1,98 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="GenerateAssemblyInfo;Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C7BE9CC-8386-4979-B0C2-CF562D17F817}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WaterTrans.TypeLoader</RootNamespace>
-    <AssemblyName>WaterTrans.TypeLoader</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <Version>2.1</Version>
+    <Company>espresso3389</Company>
+    <Copyright>© 2010 WaterTrans / © 2016 Takashi Kawasaki</Copyright>
+    <Description>A Virtical Japanese Text Processing Library</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Virtical Text,OpenType,TrueType</PackageTags>
+    <PackageProjectUrl>https://github.com/espresso3389/TypeLoader</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>espresso3389</Authors>
+    <PackageReleaseNotes>https://github.com/espresso3389/TypeLoader</PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\WaterTrans.TypeLoader.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="update_version.bat" />
-    <None Include="WaterTrans.TypeLoader.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AAT\BinarySearchHeader.cs" />
-    <Compile Include="AAT\Chain.cs" />
-    <Compile Include="AAT\FeatureTable.cs" />
-    <Compile Include="AAT\MetamorphosisTable.cs" />
-    <Compile Include="CommonTable.cs" />
-    <Compile Include="HEADTable.cs" />
-    <Compile Include="HHEATable.cs" />
-    <Compile Include="LigatureGlyphConverter.cs" />
-    <Compile Include="MORTTable.cs" />
-    <Compile Include="OpenType\AlternateSubstitution.cs" />
-    <Compile Include="OpenType\FeatureTable.cs" />
-    <Compile Include="OpenType\GposLookupType.cs" />
-    <Compile Include="OpenType\GsubLookupType.cs" />
-    <Compile Include="OpenType\LangSysTable.cs" />
-    <Compile Include="OpenType\LigatureSubstitution.cs" />
-    <Compile Include="OpenType\LookupFlag.cs" />
-    <Compile Include="OpenType\LookupTable.cs" />
-    <Compile Include="OpenType\MultipleSubstitution.cs" />
-    <Compile Include="OpenType\PairAdjustment.cs" />
-    <Compile Include="OpenType\ScriptTable.cs" />
-    <Compile Include="OpenType\SingleAdjustment.cs" />
-    <Compile Include="OpenType\SingleSubstitution.cs" />
-    <Compile Include="OpenType\ValueFormat.cs" />
-    <Compile Include="OpenType\ValueRecord.cs" />
-    <Compile Include="OS2Table.cs" />
-    <Compile Include="PairAdjustmentMetrics.cs" />
-    <Compile Include="PositionInfo.cs" />
-    <None Include="Properties\AssemblyInfo.Template.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <AutoGen>True</AutoGen>
-      <SubType>Code</SubType>
-      <DependentUpon>AssemblyInfo.Template.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SingleAdjustmentMetrics.cs" />
-    <Compile Include="SingleGlyphConverter.cs" />
-    <Compile Include="TableDirectory.cs" />
-    <Compile Include="TypefaceInfo.cs" />
-    <Compile Include="TypefaceReader.cs" />
-    <Compile Include="VHEATable.cs" />
-  </ItemGroup>
-  <Target Name="GenerateAssemblyInfo" Outputs="Properties\AssemblyInfo.cs">
-    <Exec Command="update_version.bat" ConsoleToMSBuild="true" />
-  </Target>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <Target Name="AfterBuild">
-    <Exec Command="$(SolutionDir)nuget pack $(ProjectFileName) -Prop Configuration=$(Configuration) -symbols"/>
-  </Target>
+
 </Project>
